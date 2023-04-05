@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Logo from '../components/Logo.astro'
+
+const meta = {
+	title: "Welcome to Astro.",
+	description: "This is description"
+}
+---
+
+<Layout description={meta.description} title={meta.title}>
+	<main>
+		<div>
+			Hellow
+		</div>
+	</main>
+	<Logo color="red" />
+</Layout>
