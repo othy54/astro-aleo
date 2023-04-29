@@ -1,11 +1,11 @@
 ---
 export interface Props {
-  text: string;
-  variant: string;
-  class: string;
+  text?: string;
+  variant?: string;
+  class?: string;
 }
 
-const { text, variant, class: className } = Astro.props;
+const { text = "Cliquez ici", variant, class: className } = Astro.props;
 ---
 
 <button class:list={[variant, className]}>

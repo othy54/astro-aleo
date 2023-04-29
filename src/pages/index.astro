@@ -8,6 +8,36 @@ const meta = {
   title: "Welcome to Astro.",
   description: "This is description",
 };
+
+const newspapers = [
+  {
+    link: "https://www.lefigaro.fr/services/aleo-l-agence-web-n01-dans-la-creation-de-sites-internet-pour-les-tpe-pme-20210716",
+    src: "/img/logo-figaro.svg",
+    alt: "logo figaro",
+  },
+  {
+    link: "https://www.bfmtv.com/economie/professionnels/aleo-l-agence-de-communication-pour-tpe-pme-qui-va-propulser-votre-activite_AN-202107290333.html",
+    src: "/img/logo-bfm.svg",
+    alt: "logo bfm",
+  },
+  {
+    link: "https://www.challenges.fr/entreprise/aleo-l-agence-de-communication-100-dediee-aux-tpe-pme_773971",
+    src: "/img/logo-challenges.svg",
+    alt: "logo challenges",
+  },
+  {
+    link: "https://www.latribune.fr/supplement/comment-l-agence-web-aleo-souhaite-booster-la-presence-en-ligne-des-tpe-pme-890514.html",
+    src: "/img/logo-la-tribune.svg",
+    alt: "logo la tribune",
+  },
+  {
+    link: "https://www.forbes.fr/brandvoice/10000-entreprises-conquises-pour-aleo-lagence-web-n1-des-tpe-pme/",
+    src: "/img/logo-forbes.svg",
+    alt: "logo forbes",
+  },
+];
+
+const newspapersTwice = newspapers.concat(newspapers);
 ---
 
 <Layout description={meta.description} title={meta.title}>
@@ -17,12 +47,12 @@ const meta = {
 
       <div class="row">
         <div class="grid grid-cols-12">
-          <div class="col-span-6 relative">
+          <div class="col-span-6 relative pb-[100px]">
             <div class="mt-52">
               <h1
                 class="uppercase text-xs font-extrabold tracking-[0.12em] text-white"
               >
-                L'agence de communication des TPE
+                L'agence de communication des Pros
               </h1>
               <h2
                 class="mt-4 italic font-black text-[55px] leading-[105%] text-white"
@@ -44,17 +74,21 @@ const meta = {
                   class="camera-video absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                   src="/img/icon-camera.svg"
                   alt="icone camera"
+                  width={68}
+                  height={68}
                 /><img
                   class="circle-videos"
                   src="/img/circle-voir-videos.svg"
                   alt="cercle voir vidéos"
+                  width={156}
+                  height={156}
                 />
               </div>
             </div>
           </div>
-          <div class="col-span-6">
+          <div class="col-span-6 relative">
             <Picture
-              class="relative top-[150px]"
+              class="absolute -bottom-32"
               src="/img/denis-hero-home.png"
               widths={[745, 1490]}
               aspectRatio="1490:1384"
@@ -65,6 +99,33 @@ const meta = {
             />
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION ACTIVITE -->
+
+  <section class="section section-activite pt-32">
+    <div class="row">
+      <div
+        class="container wrapper-talk-about pt-12 pb-[68px] rounded-t-[48px] overflow-hidden"
+      >
+        <p
+          class="font-extrabold text-sm text-center uppercase text-accent-700 tracking-[0.08em]"
+        >
+          Ils parlent de nous
+        </p>
+        <ul class="flex gap-6 mt-7 marquee">
+          {
+            newspapersTwice.map((item) => (
+              <li class="flex-shrink-0">
+                <a href={item.link} target="_blank">
+                  <img src={item.src} alt={item.alt} width={248} height={100} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
     </div>
   </section>
@@ -125,6 +186,26 @@ const meta = {
 
     to {
       transform: rotate(-360deg);
+    }
+  }
+
+  .wrapper-talk-about {
+    background: linear-gradient(180deg, #f4faff 0%, rgba(244, 250, 255, 0) 100%),
+      #ffffff;
+    box-shadow: 0px -20px 40px rgba(162, 204, 238, 0.4);
+  }
+
+  .marquee {
+    animation: scroll 8s infinite linear;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
     }
   }
 </style>
