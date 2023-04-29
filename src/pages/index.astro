@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import { Picture } from "@astrojs/image/components";
 import Button from "../components/Button.astro";
+import Belt from "../components/Belt.vue";
 
 const meta = {
   title: "Welcome to Astro.",
@@ -34,6 +35,39 @@ const newspapers = [
     link: "https://www.forbes.fr/brandvoice/10000-entreprises-conquises-pour-aleo-lagence-web-n1-des-tpe-pme/",
     src: "/img/logo-forbes.svg",
     alt: "logo forbes",
+  },
+];
+
+const activities = [
+  {
+    link: "/site-internet",
+    emoji: "/img/emojis/emoji-laptop.png",
+    label: "Créer ton site web",
+    alt: "emoji laptop",
+  },
+  {
+    link: "/",
+    emoji: "/img/emojis/emoji-megaphone.png",
+    label: "Conquérir plus de clients",
+    alt: "emoji megaphone",
+  },
+  {
+    link: "/",
+    emoji: "/img/emojis/emoji-hearts.png",
+    label: "Développer tes réseaux sociaux",
+    alt: "emoji hearts",
+  },
+  {
+    link: "/",
+    emoji: "/img/emojis/emoji-pen.png",
+    label: "Améliorer ton image",
+    alt: "emoji pen",
+  },
+  {
+    link: "/",
+    emoji: "/img/emojis/emoji-chat.png",
+    label: "Échanger gratuitement avec nos experts",
+    alt: "emoji chat",
   },
 ];
 
@@ -105,7 +139,7 @@ const newspapersTwice = newspapers.concat(newspapers);
 
   <!-- SECTION ACTIVITE -->
 
-  <section class="section section-activite pt-32">
+  <section class="section section-activite py-32 rounded-b-[80px]">
     <div class="row">
       <div
         class="container wrapper-talk-about pt-12 pb-[68px] rounded-t-[48px] overflow-hidden"
@@ -128,84 +162,164 @@ const newspapersTwice = newspapers.concat(newspapers);
         </ul>
       </div>
     </div>
+
+    <div class="row mt-20">
+      <div class="container">
+        <p
+          class="font-extrabold text-sm text-center uppercase text-accent-700 tracking-[0.08em]"
+        >
+          POUR BOOSTER TON ACTIVITÉ, TU PEUX :
+        </p>
+        <div
+          class="flex flex-wrap justify-center max-w-[850px] mx-auto gap-4 mt-10"
+        >
+          {
+            activities.map((activity) => (
+              <div class="group">
+                <a
+                  class="flex items-center bg-accent-100 py-6 px-8 rounded-2xl gap-4 transition-[background-color] duration-300 group-hover:bg-purple-brand"
+                  href={activity.link}
+                >
+                  <img src={activity.emoji} alt={activity.alt} />
+                  <h3 class="italic font-black text-purple-brand text-2xl transition-[color] duration-300 group-hover:text-accent-500">
+                    {" "}
+                    {activity.label}{" "}
+                  </h3>
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- SECTION DECOLLAGE -->
+
+  <section class="section section-decollage bg-purple-brand pt-40 pb-[1120px]">
+    <div class="row">
+      <div class="container">
+        <div class="grid grid-cols-12">
+          <div class="col-span-5 col-start-2">
+            <p
+              class="text-accent-200 font-extrabold text-xs uppercase tracking-[0.12em]"
+            >
+              3, 2, 1 ... DÉCOLLAGE
+            </p>
+            <h2
+              class="mt-4 italic font-black text-5xl text-accent-500 leading-[108%]"
+            >
+              À partir de <span class="text-white">
+                49 € <sup>HT/mois</sup>
+              </span>
+              et sans engagement
+            </h2>
+            <div class="mt-4">
+              <p class="font-medium text-lg text-accent-200 leading-[156%]">
+                Indépendant, petite ou moyenne entreprise, découvre ALEO,
+                l’offre qui va révolutionner la manière dont tu fais ta pub.
+              </p>
+              <p
+                class="mt-2 font-medium text-lg text-accent-200 leading-[156%]"
+              >
+                Des solutions digitales, professionnelles et clés en main pour
+                booster ton activité.
+              </p>
+              <p
+                class="mt-2 font-medium text-lg text-accent-200 leading-[156%]"
+              >
+                Attache ta ceinture !
+              </p>
+            </div>
+            <Belt client:visible />
+          </div>
+          <div class="col-span-6"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style lang="postcss">
+    .section-hero {
+      border-radius: 0 0 368px 0;
+      background-image: url("/img/bg-distorsion-home.svg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 86px;
+        aspect-ratio: 1;
+        background-image: url("/img/corner-home.svg");
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translateY(100%);
+      }
+    }
+
+    .circle-videos {
+      transition-duration: 0.3s;
+      transition-timing-function: cubic-bezier(0.5, 3, 0, 0.5);
+      transform-origin: center;
+    }
+
+    .camera-video {
+      transition-duration: 0.3s;
+      transition-timing-function: cubic-bezier(0.5, 3, 0, 0.5);
+      transition-delay: 50ms;
+    }
+
+    .wrapper-see-videos {
+      &:hover {
+        & .circle-videos {
+          scale: 1.2;
+        }
+
+        & .camera-video {
+          transform: translate(-50%, -50%) scale(1.2) rotate(-15deg);
+        }
+      }
+    }
+
+    .circle-videos {
+      animation: rotation 8s infinite linear forwards;
+    }
+
+    @keyframes rotation {
+      from {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(-360deg);
+      }
+    }
+
+    .wrapper-talk-about {
+      background: linear-gradient(
+          180deg,
+          #f4faff 0%,
+          rgba(244, 250, 255, 0) 100%
+        ),
+        #ffffff;
+      box-shadow: 0px -20px 40px rgba(162, 204, 238, 0.4);
+    }
+
+    .marquee {
+      animation: scroll 8s infinite linear;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
 </Layout>
-<style lang="postcss">
-  .section-hero {
-    border-radius: 0 0 368px 0;
-    background-image: url("/img/bg-distorsion-home.svg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-
-    &::after {
-      content: "";
-      width: 86px;
-      aspect-ratio: 1;
-      background-image: url("/img/corner-home.svg");
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      transform: translateY(100%);
-    }
-  }
-
-  .circle-videos {
-    transition-duration: 0.3s;
-    transition-timing-function: cubic-bezier(0.5, 3, 0, 0.5);
-    transform-origin: center;
-  }
-
-  .camera-video {
-    transition-duration: 0.3s;
-    transition-timing-function: cubic-bezier(0.5, 3, 0, 0.5);
-    transition-delay: 50ms;
-  }
-
-  .wrapper-see-videos {
-    &:hover {
-      & .circle-videos {
-        scale: 1.2;
-      }
-
-      & .camera-video {
-        transform: translate(-50%, -50%) scale(1.2) rotate(-15deg);
-      }
-    }
-  }
-
-  .circle-videos {
-    animation: rotation 8s infinite linear forwards;
-  }
-
-  @keyframes rotation {
-    from {
-      transform: rotate(0);
-    }
-
-    to {
-      transform: rotate(-360deg);
-    }
-  }
-
-  .wrapper-talk-about {
-    background: linear-gradient(180deg, #f4faff 0%, rgba(244, 250, 255, 0) 100%),
-      #ffffff;
-    box-shadow: 0px -20px 40px rgba(162, 204, 238, 0.4);
-  }
-
-  .marquee {
-    animation: scroll 8s infinite linear;
-  }
-
-  @keyframes scroll {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(-100%);
-    }
-  }
-</style>
