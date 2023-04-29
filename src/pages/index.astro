@@ -1,18 +1,128 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Logo from '../components/Logo.astro'
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import { Picture } from "@astrojs/image/components";
+import Button from "../components/Button.astro";
 
 const meta = {
-	title: "Welcome to Astro.",
-	description: "This is description"
-}
+  title: "Welcome to Astro.",
+  description: "This is description",
+};
 ---
 
 <Layout description={meta.description} title={meta.title}>
-	<main>
-		<div>
-			Hellow
-		</div>
-	</main>
-	<Logo color="red" />
+  <section class="section section-hero w-full bg-primary-500">
+    <div class="container relative">
+      <Header />
+
+      <div class="row">
+        <div class="grid grid-cols-12">
+          <div class="col-span-6 relative">
+            <div class="mt-52">
+              <h1
+                class="uppercase text-xs font-extrabold tracking-[0.12em] text-white"
+              >
+                L'agence de communication des TPE
+              </h1>
+              <h2
+                class="mt-4 italic font-black text-[55px] leading-[105%] text-white"
+              >
+                ALEO, la communication enfin accessible à toutes les entreprises
+                !
+              </h2>
+              <Button
+                class="mt-8"
+                variant="btn-tertiary-white"
+                text="Prend rendez-vous gratuitement"
+              />
+            </div>
+            <div
+              class="wrapper-see-videos w-fit-content absolute bottom-0 right-0 translate-y-1/2"
+            >
+              <div class="relative">
+                <img
+                  class="camera-video absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  src="/img/icon-camera.svg"
+                  alt="icone camera"
+                /><img
+                  class="circle-videos"
+                  src="/img/circle-voir-videos.svg"
+                  alt="cercle voir vidéos"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-span-6">
+            <Picture
+              class="relative top-[150px]"
+              src="/img/denis-hero-home.png"
+              widths={[745, 1490]}
+              aspectRatio="1490:1384"
+              sizes="(max-width:1536px) 600px, 745px"
+              alt="Denis Brognart Hero"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
+<style lang="postcss">
+  .section-hero {
+    border-radius: 0 0 368px 0;
+    background-image: url("/img/bg-distorsion-home.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 86px;
+      aspect-ratio: 1;
+      background-image: url("/img/corner-home.svg");
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translateY(100%);
+    }
+  }
+
+  .circle-videos {
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.5, 3, 0, 0.5);
+    transform-origin: center;
+  }
+
+  .camera-video {
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.5, 3, 0, 0.5);
+    transition-delay: 50ms;
+  }
+
+  .wrapper-see-videos {
+    &:hover {
+      & .circle-videos {
+        scale: 1.2;
+      }
+
+      & .camera-video {
+        transform: translate(-50%, -50%) scale(1.2) rotate(-15deg);
+      }
+    }
+  }
+
+  .circle-videos {
+    animation: rotation 8s infinite linear forwards;
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0);
+    }
+
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+</style>

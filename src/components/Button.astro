@@ -1,0 +1,13 @@
+---
+export interface Props {
+  text: string;
+  variant: string;
+  class: string;
+}
+
+const { text, variant, class: className } = Astro.props;
+---
+
+<button class:list={[variant, className]}>
+  {text}
+</button>
