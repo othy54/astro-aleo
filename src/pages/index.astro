@@ -180,7 +180,12 @@ const newspapersTwice = newspapers.concat(newspapers);
                   class="flex items-center bg-accent-100 py-6 px-8 rounded-2xl gap-4 transition-[background-color] duration-300 group-hover:bg-purple-brand"
                   href={activity.link}
                 >
-                  <img src={activity.emoji} alt={activity.alt} />
+                  <img
+                    src={activity.emoji}
+                    alt={activity.alt}
+                    width={32}
+                    height={32}
+                  />
                   <h3 class="italic font-black text-purple-brand text-2xl transition-[color] duration-300 group-hover:text-accent-500">
                     {" "}
                     {activity.label}{" "}
