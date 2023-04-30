@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import { Picture } from "@astrojs/image/components";
 import Button from "../components/Button.astro";
 import Belt from "../components/Belt.vue";
+import Lotties1 from "../components/Lotties-1.vue";
 
 const meta = {
   title: "Welcome to Astro.",
@@ -186,6 +187,7 @@ const newspapersTwice = newspapers.concat(newspapers);
                     alt={activity.alt}
                     width={32}
                     height={32}
+                    loading="lazy"
                   />
                   <h3 class="italic font-black text-purple-brand text-2xl transition-[color] duration-300 group-hover:text-accent-500">
                     {" "}
@@ -202,143 +204,196 @@ const newspapersTwice = newspapers.concat(newspapers);
 
   <!-- SECTION DECOLLAGE -->
 
-  <section
-    class="section section-decollage bg-purple-brand pt-40 pb-[1120px] overflow-hidden"
-  >
-    <div class="row">
-      <div class="container">
-        <div class="grid grid-cols-12">
-          <div class="col-span-5 col-start-2">
-            <p
-              class="text-accent-200 font-extrabold text-xs uppercase tracking-[0.12em]"
-            >
-              3, 2, 1 ... DÉCOLLAGE
-            </p>
-            <h2
-              class="mt-4 italic font-black text-5xl text-accent-500 leading-[108%]"
-            >
-              À partir de <span class="text-white">
-                49 € <sup>HT/mois</sup>
-              </span>
-              et sans engagement
-            </h2>
-            <div class="mt-4">
-              <p class="font-medium text-lg text-accent-200 leading-[156%]">
-                Indépendant, petite ou moyenne entreprise, découvre ALEO,
-                l’offre qui va révolutionner la manière dont tu fais ta pub.
-              </p>
+  <section class="bg-purple-brand relative overflow-hidden">
+    <div class="bg-noise z-[3]"></div>
+    <img
+      class="absolute -top-10 -right-10 blur-[110px]"
+      src="/img/blobs-blur.svg"
+      loading="lazy"
+      alt="blob blurs"
+    />
+    <div
+      class="section section-decollage pt-40 pb-[1120px] overflow-hidden relative z-[4]"
+    >
+      <div class="row">
+        <div class="container">
+          <div class="grid grid-cols-12">
+            <div class="col-span-5 col-start-2">
               <p
-                class="mt-2 font-medium text-lg text-accent-200 leading-[156%]"
+                class="text-accent-200 font-extrabold text-xs uppercase tracking-[0.12em]"
               >
-                Des solutions digitales, professionnelles et clés en main pour
-                booster ton activité.
+                3, 2, 1 ... DÉCOLLAGE
               </p>
-              <p
-                class="mt-2 font-medium text-lg text-accent-200 leading-[156%]"
+              <h2
+                class="mt-4 italic font-black text-5xl text-accent-500 leading-[108%]"
               >
-                Attache ta ceinture !
-              </p>
+                À partir de <span class="text-white">
+                  49 € <sup>HT/mois</sup>
+                </span>
+                et sans engagement
+              </h2>
+              <div class="mt-4">
+                <p class="font-medium text-lg text-accent-200 leading-[156%]">
+                  Indépendant, petite ou moyenne entreprise, découvre ALEO,
+                  l’offre qui va révolutionner la manière dont tu fais ta pub.
+                </p>
+                <p
+                  class="mt-2 font-medium text-lg text-accent-200 leading-[156%]"
+                >
+                  Des solutions digitales, professionnelles et clés en main pour
+                  booster ton activité.
+                </p>
+                <p
+                  class="mt-2 font-medium text-lg text-accent-200 leading-[156%]"
+                >
+                  Attache ta ceinture !
+                </p>
+              </div>
+              <Belt client:visible />
             </div>
-            <Belt client:visible />
+            <div class="col-span-6 relative">
+              <Picture
+                class="absolute right-[-120px]"
+                src="/img/visuel-decollage.png"
+                widths={[775, 1550]}
+                aspectRatio="1550:1016"
+                height={553}
+                width={775}
+                sizes="(max-width:1536px) 600px, 775px"
+                alt="Mockup science de la beauté"
+              />
+            </div>
           </div>
-          <div class="col-span-6 relative">
-            <Picture
-              class="absolute right-[-120px]"
-              src="/img/visuel-decollage.png"
-              widths={[775, 1550]}
-              aspectRatio="1550:1016"
-              height={553}
-              width={775}
-              sizes="(max-width:1536px) 600px, 775px"
-              alt="Mockup science de la beauté"
-            />
+        </div>
+      </div>
+
+      <div class="row py-[200px] mt-20">
+        <div class="container">
+          <div
+            class="italic font-black text-[66px] text-accent-100 text-center"
+          >
+            + de <span class="ten-k">10 000</span> entreprises accompagnées
           </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="container">
+          <Lotties1 client:visible />
         </div>
       </div>
     </div>
   </section>
 
-  <style lang="postcss">
-    .section-hero {
-      border-radius: 0 0 368px 0;
-      background-image: url("/img/bg-distorsion-home.svg");
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      position: relative;
-
-      &::after {
-        content: "";
-        width: 86px;
-        aspect-ratio: 1;
-        background-image: url("/img/corner-home.svg");
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        transform: translateY(100%);
-      }
-    }
-
-    .circle-videos {
-      transition-duration: 0.3s;
-      transition-timing-function: cubic-bezier(0.5, 3, 0, 0.5);
-      transform-origin: center;
-    }
-
-    .camera-video {
-      transition-duration: 0.3s;
-      transition-timing-function: cubic-bezier(0.5, 3, 0, 0.5);
-      transition-delay: 50ms;
-    }
-
-    .wrapper-see-videos {
-      &:hover {
-        & .circle-videos {
-          scale: 1.2;
-        }
-
-        & .camera-video {
-          transform: translate(-50%, -50%) scale(1.2) rotate(-15deg);
-        }
-      }
-    }
-
-    .circle-videos {
-      animation: rotation 8s infinite linear forwards;
-    }
-
-    @keyframes rotation {
-      from {
-        transform: rotate(0);
-      }
-
-      to {
-        transform: rotate(-360deg);
-      }
-    }
-
-    .wrapper-talk-about {
-      background: linear-gradient(
-          180deg,
-          #f4faff 0%,
-          rgba(244, 250, 255, 0) 100%
-        ),
-        #ffffff;
-      box-shadow: 0px -20px 40px rgba(162, 204, 238, 0.4);
-    }
-
-    .marquee {
-      animation: scroll 8s infinite linear;
-    }
-
-    @keyframes scroll {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-100%);
-      }
-    }
-  </style>
+  <!-- SECTION DECOLLAGE -->
 </Layout>
+
+<style lang="postcss">
+  .bg-noise {
+    background-image: url("/img/noise.png");
+    mix-blend-mode: overlay;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+  .section-hero {
+    border-radius: 0 0 368px 0;
+    background-image: url("/img/bg-distorsion-home.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 86px;
+      aspect-ratio: 1;
+      background-image: url("/img/corner-home.svg");
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translateY(100%);
+    }
+  }
+
+  .circle-videos {
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.5, 3, 0, 0.5);
+    transform-origin: center;
+  }
+
+  .camera-video {
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.5, 3, 0, 0.5);
+    transition-delay: 50ms;
+  }
+
+  .wrapper-see-videos {
+    &:hover {
+      & .circle-videos {
+        scale: 1.2;
+      }
+
+      & .camera-video {
+        transform: translate(-50%, -50%) scale(1.2) rotate(-15deg);
+      }
+    }
+  }
+
+  .circle-videos {
+    animation: rotation 8s infinite linear forwards;
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0);
+    }
+
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  .wrapper-talk-about {
+    background: linear-gradient(180deg, #f4faff 0%, rgba(244, 250, 255, 0) 100%),
+      #ffffff;
+    box-shadow: 0px -20px 40px rgba(162, 204, 238, 0.4);
+  }
+
+  .marquee {
+    animation: scroll 8s infinite linear;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  .ten-k {
+    position: relative;
+    display: inline-block;
+
+    &::before {
+      content: url("/img/star-radius-1.svg");
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+
+    &::after {
+      content: url("/img/star-radius-2.svg");
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+    }
+  }
+</style>
