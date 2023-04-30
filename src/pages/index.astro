@@ -201,7 +201,9 @@ const newspapersTwice = newspapers.concat(newspapers);
 
   <!-- SECTION DECOLLAGE -->
 
-  <section class="section section-decollage bg-purple-brand pt-40 pb-[1120px]">
+  <section
+    class="section section-decollage bg-purple-brand pt-40 pb-[1120px] overflow-hidden"
+  >
     <div class="row">
       <div class="container">
         <div class="grid grid-cols-12">
@@ -238,7 +240,18 @@ const newspapersTwice = newspapers.concat(newspapers);
             </div>
             <Belt client:visible />
           </div>
-          <div class="col-span-6"></div>
+          <div class="col-span-6 relative">
+            <Picture
+              class="absolute right-[-120px]"
+              src="/img/visuel-decollage.png"
+              widths={[775, 1550]}
+              aspectRatio="1550:1016"
+              height={553}
+              width={775}
+              sizes="(max-width:1536px) 600px, 775px"
+              alt="Mockup science de la beauté"
+            />
+          </div>
         </div>
       </div>
     </div>
