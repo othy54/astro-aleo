@@ -8,7 +8,7 @@ import Button from "./Button.astro";
     <div>
       <Logo class="fill-white" />
     </div>
-    <div>
+    <div class="hidden lg:block">
       <nav>
         <ul class="flex gap-14 menu-wrapper">
           <li>Solutions</li>
@@ -19,7 +19,11 @@ import Button from "./Button.astro";
       </nav>
     </div>
     <div>
-      <Button class="" variant="btn-primary" text="Contacte-nous" />
+      <Button
+        class="hidden lg:block"
+        variant="btn-primary"
+        text="Contacte-nous"
+      />
       <Button class="" variant="btn-tertiary-white" text="Rappel gratuit" />
     </div>
   </div>

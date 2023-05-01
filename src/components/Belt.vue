@@ -6,15 +6,14 @@
       loading="lazy" />
   </div>
 </template>
+
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 import { inView, animate } from "motion"
 
 onMounted(() => {
-
-
   inView(".belt-on", (info) => {
-    const controls = animate(info.target, { opacity: 1 })
+    animate(info.target, { opacity: 1 })
     return (_leaveInfo) => animate(info.target, { opacity: 0 })
   }, { margin: '-280px -80px -280px -80px' })
 })
