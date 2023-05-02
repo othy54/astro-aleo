@@ -6,12 +6,6 @@ import Button from "../components/Button.astro";
 import Belt from "../components/Belt.vue";
 // @ts-ignore
 import Animation from "../components/Animation.vue";
-// import {
-//   BackgroundImage,
-// } from "astro-imagetools/components";
-
-// const content = await fetch(import.meta.env.CONTENT_URL).then((r) => r.text());
-
 
 const meta = {
   title: "Welcome to Astro.",
@@ -239,18 +233,6 @@ const lotties = ["team", "tarifs", "sans-engagement", "gestion-distance"];
   <!-- SECTION DECOLLAGE -->
 
   <section class="bg-purple-brand relative overflow-hidden z-[2]">
-	<!-- <BackgroundImage
-      src="/img/noise.png"
-	  alt="A random image"
-	  format={["avif", "webp"]}
-	  fallbackFormat="png"
-	  backgroundSize="none"
-	  backgroundPosition="50% 50%"
-
-    />
-	<Fragment set:html={content} /> -->
-
-    <!-- <div class="bg-noise z-[3]"></div> -->
     <img
       class="absolute -top-10 -right-10 blur-[110px]"
       src="/img/blobs-blur.svg"
@@ -375,7 +357,7 @@ const lotties = ["team", "tarifs", "sans-engagement", "gestion-distance"];
   </section>
 </Layout>
 
-<style lang="postcss">
+<style>
   .bg-noise {
     background-image: url("/img/noise.png");
     mix-blend-mode: overlay;

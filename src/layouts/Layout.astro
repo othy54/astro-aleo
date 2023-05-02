@@ -20,10 +20,6 @@ import "@fontsource/nunito/800.css";
 import "@fontsource/nunito/800-italic.css";
 import "@fontsource/nunito/900.css";
 import "@fontsource/nunito/900-italic.css";
-
-import {
-  ImageSupportDetection,
-} from "astro-imagetools/components";
 ---
 
 <!DOCTYPE html>
@@ -35,14 +31,12 @@ import {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta data-hid="description" name="description" content={description} />
-    <ImageSupportDetection />
   </head>
   <body>
     <slot />
-  </body>
+  </body><style is:global>
+    body {
+      font-family: "Nunito", sans-serif;
+    }
+  </style>
 </html>
-<style is:global>
-  body {
-    font-family: "Nunito", sans-serif;
-  }
-</style>
