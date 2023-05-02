@@ -4,8 +4,8 @@
             :class="props.invert ? 'lg:order-2 col-span-12 lg:col-span-5 lg:col-start-7' : 'lg:order-1 col-span-12 lg:col-span-4 lg:col-start-2'">
             <div :class="props.label"></div>
         </div>
-        <div class="flex items-center order-1 lg:order-2 "
-            :class="props.invert ? 'lg:order-1 col-span-12 lg:col-span-4 lg:col-start-2' : 'lg:order-2 col-span-12 lg:col-span-5 lg:col-start-7'">
+        <div class="flex items-center order-1"
+            :class="props.invert ? 'lg:order-1 col-span-12 lg:col-span-4 lg:col-start-2' : 'col-span-12 lg:col-span-5 lg:col-start-7'">
             <div>
                 <h2 class="italic font-black text-[32px] lg:text-[40px] text-accent-300">
                     {{ props.title }} </h2>
