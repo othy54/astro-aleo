@@ -500,64 +500,152 @@ const lotties = ["team", "tarifs", "sans-engagement", "gestion-distance"];
 
   <!-- SECTION CTA -->
 
-  <!-- <section class="section section-cta pt-40 pb-40 lg:pt-56 lg:pb-64 relative">
-    <Picture
-      class="absolute top-0 left-0 z-[-1] w-full"
-      src="/img/bg-cta.png"
-      aspectRatio="2160:1217"
-      widths={[380, 1920]}
-      width={1920}
-      height={949}
-      sizes="(max-width: 768px) 380px, (min-width: 1536px) 1920px, 2160px"
-      fit="cover"
-      position="center"
-      alt="bg"
-    />
-    <div class="row">
-      <div class="container">
-        <h2 class="italic font-black text-[40px] text-accent-500 text-center">
-          Choisir ALEO ?
-        </h2>
-        <p
-          class="italic font-black text-[32px] text-accent-500 text-center mt-2"
-        >
-          Rien de plus simple :
-        </p>
-
-        <div
-          class="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-11 lg:w-[80%] mx-auto mt-10"
-        >
-          {
-            ctaSteps.map((item) => (
-              <div>
-                <Picture
-                  class=""
-                  src={item.img}
-                  aspectRatio="80:97"
-                  widths={[80]}
-                  width={80}
-                  height={97}
-                  sizes="80px"
-                  alt="mockup pc"
-                />
-                <p class="italic text-primary-500 font-black text-xl mt-4">
-                  {item.title}
-                </p>
-                <p class="font-medium text-accent-500 mt-4">{item.content}</p>
-              </div>
-            ))
-          }
-        </div>
-
-        <Button
-          class="mx-auto block mt-8"
-          variant="btn-primary"
-          text="Je me lance"
-        />
-      </div>
-    </div>
-  </section> -->
   <Cta />
+
+  <!-- SECTION FOOTER -->
+
+  <footer>
+    <section
+      v-else
+      class="section section-footer bg-purple-brand pt-16 pb-14 rounded-t-[40px] -mt-12 relative"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <img
+                loading="lazy"
+                src="/img/logo-aleo-slogan.svg"
+                alt="logo aleo slogan"
+                class="mx-auto lg:ml-0 lg:w-[340px]"
+              />
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+              <div>
+                <p class="section-footer__list-title">Solutions</p>
+                <ul class="section-footer__list-items">
+                  <li>Site web et sa visibilité</li>
+                  <li>Publicité sur Google</li>
+                  <li>Réseaux sociaux</li>
+                  <li>Logo et supports imprimés</li>
+                </ul>
+              </div>
+              <div>
+                <p class="section-footer__list-title">À propos</p>
+                <ul class="section-footer__list-items">
+                  <li>ALEO</li>
+                  <li>L'équipage</li>
+                  <li>
+                    <a
+                      href="https://jobs.aleo.agency/"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="lien jobs"
+                    >
+                      ALEO Jobs
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <p class="section-footer__list-title">En savoir +</p>
+                <ul class="section-footer__list-items">
+                  <li>Témoignages</li>
+                  <li>
+                    <a
+                      href="https://blog.aleo.agency/"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="lien blog"
+                    >
+                      Blog
+                    </a>
+                  </li>
+                  <li>FAQ</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-10 lg:mt-16">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="lg:order-2">
+              <p class="font-extrabold text-center lg:text-left text-white">
+                Se lancer dans l’expérience ALEO dès maintenant
+              </p>
+            </div>
+            <div class="lg:order-1">
+              <div
+                class="flex justify-center items-start lg:justify-start gap-x-8"
+              >
+                <a
+                  href="https://www.facebook.com/aleo.agency/"
+                  target="_blank"
+                  rel="nofollow noopener"
+                  aria-label="link facebook"
+                >
+                  <img
+                    width="30"
+                    height="30"
+                    src="/img/facebook.svg"
+                    loading="lazy"
+                    alt="logo facebook"
+                  />
+                </a>
+                <a
+                  href="https://www.instagram.com/aleo.agency/?hl=fr"
+                  target="_blank"
+                  rel="nofollow noopener"
+                  aria-label="link facebook"
+                >
+                  <img
+                    width="30"
+                    height="30"
+                    src="/img/instagram.svg"
+                    loading="lazy"
+                    alt="logo instagram"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/aleo-agency/"
+                  target="_blank"
+                  rel="nofollow noopener"
+                  aria-label="link linkedin"
+                >
+                  <img
+                    width="30"
+                    height="30"
+                    src="/img/linkedin.svg"
+                    loading="lazy"
+                    alt="logo linkedin"
+                  />
+                </a>
+                <a
+                  href="https://www.youtube.com/channel/UC4GBqxVpyYLiZGHRiA2RbPQ"
+                  target="_blank"
+                  rel="nofollow noopener"
+                  aria-label="link youtube"
+                >
+                  <img
+                    width="30"
+                    height="30"
+                    src="/img/youtube.svg"
+                    loading="lazy"
+                    alt="logo youtube"
+                  />
+                </a>
+              </div>
+              <p
+                class="font-medium text-sm text-white mt-5 text-center lg:text-left"
+              >
+                2023 ALEO. Tous droits réservés — Mentions légales
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
 </Layout>
 
 <style>
@@ -771,9 +859,45 @@ const lotties = ["team", "tarifs", "sans-engagement", "gestion-distance"];
     }
   }
 
-  /* .section-cta {
-    background-image: url("/img/bg-cta.png");
-    background-position: center;
-    background-size: cover;
-  } */
+  .section-footer {
+    &__list-title {
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 28px;
+      margin-bottom: 16px;
+    }
+
+    &__list-items {
+      color: white;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+
+      & > li {
+        margin-bottom: 12px;
+
+        & a {
+          position: relative;
+          width: fit-content;
+
+          &::after {
+            content: "";
+            width: 0;
+            height: 1px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: 0.3s;
+          }
+          &:hover {
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
 </style>
