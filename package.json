@@ -24,6 +24,7 @@
     "vue": "^3.2.47"
   },
   "devDependencies": {
-    "postcss-nesting": "^11.2.2"
+    "postcss-nesting": "^11.2.2",
+    "vite-imagetools": "^5.0.0"
   }
 }

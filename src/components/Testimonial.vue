@@ -3,12 +3,11 @@
     <div class="lg:grid lg:grid-cols-12 lg:gap-x-8">
       <div class="lg:col-span-5 hidden lg:block">
         <div class="relative w-fit-content">
-          <img
-            class="rounded-2xl max-h-[656px]"
-            :src="testimonials[glideInit.index]?.img"
-            loading="lazy"
-            alt="artisan"
-          />
+          <picture>
+            <source :srcset="testimonials[glideInit.index]?.img?.avif" type="image/avif" />
+            <source :srcset="testimonials[glideInit.index]?.img?.webp" type="image/webp" />
+            <img class="rounded-2xl" :src="testimonials[glideInit.index]?.img?.fallback" loading="lazy" width="436" height="656" />
+          </picture>
           <img
             class="absolute top-[-120px] right-[-9vw]"
             src="/img/double-fists.png"
@@ -121,6 +120,7 @@
             >
               <img
                 width="32"
+                height="32"
                 src="/img/arrow-right.svg"
                 alt="bouton suivant"
                 loading="lazy"
@@ -132,19 +132,26 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
 import "@glidejs/glide/dist/css/glide.core.min.css";
 import Glide, {Breakpoints, Controls, Swipe} from "@glidejs/glide/dist/glide.modular.esm";
 
+import {ref, onMounted} from 'vue'
 
-export default {
+// import testiToitureAvif from '/img/testi-y-toitures.png?w=436&format=avif&as=srcset'
+// import testiToitureWebp from '/img/testi-y-toitures.png?w=436&format=webp&as=srcset'
 
-  props: {
+
+const props =  defineProps({
     testimonials: {
       type: Array,
       default: () => [
         {
-          img: "/img/testi-y-toitures.png",
+          img: {
+            avif: '/img/testi-y-toitures.png?w=436&format=avifquality=40&as=srcset',
+            webp: '/img/testi-y-toitures.png?w=436&format=webp&quality=100&as=srcset',
+            fallback: "/img/testi-y-toitures.png?w=436"
+          },
           tags: [0],
           text: "Je suis très content de leurs services. Toujours à l’écoute et prêts à nous aider. Je recommande pour tout développement dans le domaine internet. Merci à toute l’équipe.",
           author: "Yves HUMMEL — Y Toitures",
@@ -185,65 +192,61 @@ export default {
       type: String,
       default: "Prends part au voyage qui changera le cours de ton activité !",
     },
-  },
-  data() {
-    return {
-      tagsList: [
-        {
-          tag: "Site web & référencement",
-          color: "text-accent-700",
-          bg: "bg-accent-100",
-          link: "web",
-        },
-        {
-          tag: "Publicité sur Google",
-          color: "text-warning-700",
-          bg: "bg-warning-100",
-          link: "seo",
-        },
-        {
-          tag: "Réseaux sociaux",
-          color: "text-primary-700",
-          bg: "bg-primary-50",
-          link: "facebook",
-        },
-        {
-          tag: "Graphisme & identité",
-          color: "text-success-700",
-          bg: "bg-success-100",
-          link: "graphism",
-        },
-      ],
-      glideInit: "",
-    };
-  },
+});
 
-  mounted() {
-    this.initGlide()
-  },
+const tagsList = ref([
+{
+    tag: "Site web & référencement",
+    color: "text-accent-700",
+    bg: "bg-accent-100",
+    link: "web",
+},
+{
+    tag: "Publicité sur Google",
+    color: "text-warning-700",
+    bg: "bg-warning-100",
+    link: "seo",
+},
+{
+    tag: "Réseaux sociaux",
+    color: "text-primary-700",
+    bg: "bg-primary-50",
+    link: "facebook",
+},
+{
+    tag: "Graphisme & identité",
+    color: "text-success-700",
+    bg: "bg-success-100",
+    link: "graphism",
+},
+]);
+const glideInit = ref( "");
 
-  methods: {
-    initGlide() {
-      this.glideInit = new Glide("#glide-testimonial", {
-          type: "carousel",
-          perView: 1,
-          gap: 25,
-          breakpoints: {
-            640: {
-              perView: 1,
-            },
-            768: {
-              perView: 1.2,
-              gap: 45,
-            },
-            1024: {
-              perView: 1,
-            },
-          },
-        }).mount({ Controls, Swipe, Breakpoints });
-    },
-  },
-};
+ onMounted(() => {
+    initGlide()
+  }) ;
+
+
+const initGlide = () => {
+    glideInit.value = new Glide("#glide-testimonial", {
+        type: "carousel",
+        perView: 1,
+        gap: 25,
+        breakpoints: {
+        640: {
+            perView: 1,
+        },
+        768: {
+            perView: 1.2,
+            gap: 45,
+        },
+        1024: {
+            perView: 1,
+        },
+        },
+    }).mount({ Controls, Swipe, Breakpoints });
+}
+
 </script>
 <style lang="postcss" scoped>
 .glide__bullet {
