@@ -10,9 +10,6 @@ import { imagetools } from 'vite-imagetools'
 export default defineConfig({
   integrations: [tailwind(), vue(), image()],
   vite: {
-    plugins:[imagetools()]
+    plugins: [imagetools()]
   },
-  experimental: {
-    assets: true
-   }
 });

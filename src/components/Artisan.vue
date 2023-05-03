@@ -2,6 +2,7 @@
     <div></div>
 </template>
 <script setup lang="ts">
+// @ts-nocheck
 import { animate, scroll } from "motion"
 import { onMounted } from "vue";
 
