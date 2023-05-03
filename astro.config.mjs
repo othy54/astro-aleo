@@ -11,5 +11,8 @@ export default defineConfig({
   integrations: [tailwind(), vue(), image()],
   vite: {
     plugins:[imagetools()]
-  }
+  },
+  experimental: {
+    assets: true
+   }
 });

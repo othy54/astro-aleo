@@ -138,7 +138,7 @@ import Glide, {Breakpoints, Controls, Swipe} from "@glidejs/glide/dist/glide.mod
 
 import {ref, onMounted} from 'vue'
 
-// import testiToitureAvif from '/img/testi-y-toitures.png?w=436&format=avif&as=srcset'
+import TestiToitureAvif from '../assets/images/testi-y-toitures.png?w=436&format=avif&as=srcset'
 // import testiToitureWebp from '/img/testi-y-toitures.png?w=436&format=webp&as=srcset'
 
 
@@ -148,7 +148,7 @@ const props =  defineProps({
       default: () => [
         {
           img: {
-            avif: '/img/testi-y-toitures.png?w=436&format=avifquality=40&as=srcset',
+            avif: TestiToitureAvif,
             webp: '/img/testi-y-toitures.png?w=436&format=webp&quality=100&as=srcset',
             fallback: "/img/testi-y-toitures.png?w=436"
           },
