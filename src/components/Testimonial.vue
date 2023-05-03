@@ -1,14 +1,14 @@
 
 <template>
-  <div class="component">
+  <div class="component pb-20 lg:pb-40">
     <div class="lg:grid lg:grid-cols-12 lg:gap-x-8">
       <div class="lg:col-span-5 hidden lg:block">
         <div class="relative w-fit-content">
           <picture>
             <source :srcset="testimonials[glideInit.index]?.img?.avif" type="image/avif" />
             <source :srcset="testimonials[glideInit.index]?.img?.webp" type="image/webp" />
-            <img class="rounded-2xl" :src="testimonials[glideInit.index]?.img?.fallback" loading="lazy" width="436"
-              height="656" />
+            <img class="rounded-2xl" :src="testimonials[glideInit.index]?.img?.fallback" alt="slide temoignage"
+              loading="lazy" width="436" height="656" />
           </picture>
           <!-- <img class="absolute top-[-120px] right-[-9vw]" src="/img/double-fists.png" alt="double poings"
             loading="lazy" /> -->

@@ -8,6 +8,7 @@ import Belt from "../components/Belt.vue";
 import Animation from "../components/Animation.vue";
 // @ts-ignore
 import Testimonial from "../components/Testimonial.vue";
+import Cta from "../components/Cta.vue";
 
 const meta = {
   title: "Welcome to Astro.",
@@ -97,6 +98,32 @@ const bigBang = [
     title: "Une gestion à distance sur tout le territoire national",
     content:
       "Sur Terre (ou sur toute autre planète), l’ère du digital règne. Raison pour laquelle notre agence de communication met un point d’honneur à créer une relation sans frontières qui garantira ton plus grand confort.",
+  },
+];
+
+const ctaSteps = [
+  {
+    img: "/img/etape-1.png",
+    title: "Découverte",
+    content:
+      "Obtiens un RDV téléphonique gratuit de 10 à 15 minutes pour parler de ton projet",
+  },
+  {
+    img: "/img/etape-2.png",
+    title: "Conseil",
+    content: "Proposition des offres les plus adaptés",
+  },
+  {
+    img: "/img/etape-3.png",
+    title: "Lancement",
+    content:
+      "3, 2, 1… Deviens Aleonaute et attache ta ceinture ! C’est le moment de propulser ton activité",
+  },
+  {
+    img: "/img/etape-4.png",
+    title: "Suivi",
+    content:
+      "Bénéficie d’un accompagnement personnalisé tout au long de ton projet",
   },
 ];
 
@@ -463,13 +490,74 @@ const lotties = ["team", "tarifs", "sans-engagement", "gestion-distance"];
 
   <!-- SECTION OFFRES -->
 
-  <section class="section section-testimonial mt-40">
+  <section class="section section-testimonial mt-52">
     <div class="row">
       <div class="container">
         <Testimonial client:visible />
       </div>
     </div>
   </section>
+
+  <!-- SECTION CTA -->
+
+  <!-- <section class="section section-cta pt-40 pb-40 lg:pt-56 lg:pb-64 relative">
+    <Picture
+      class="absolute top-0 left-0 z-[-1] w-full"
+      src="/img/bg-cta.png"
+      aspectRatio="2160:1217"
+      widths={[380, 1920]}
+      width={1920}
+      height={949}
+      sizes="(max-width: 768px) 380px, (min-width: 1536px) 1920px, 2160px"
+      fit="cover"
+      position="center"
+      alt="bg"
+    />
+    <div class="row">
+      <div class="container">
+        <h2 class="italic font-black text-[40px] text-accent-500 text-center">
+          Choisir ALEO ?
+        </h2>
+        <p
+          class="italic font-black text-[32px] text-accent-500 text-center mt-2"
+        >
+          Rien de plus simple :
+        </p>
+
+        <div
+          class="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-11 lg:w-[80%] mx-auto mt-10"
+        >
+          {
+            ctaSteps.map((item) => (
+              <div>
+                <Picture
+                  class=""
+                  src={item.img}
+                  aspectRatio="80:97"
+                  widths={[80]}
+                  width={80}
+                  height={97}
+                  sizes="80px"
+                  alt="mockup pc"
+                />
+                <p class="italic text-primary-500 font-black text-xl mt-4">
+                  {item.title}
+                </p>
+                <p class="font-medium text-accent-500 mt-4">{item.content}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <Button
+          class="mx-auto block mt-8"
+          variant="btn-primary"
+          text="Je me lance"
+        />
+      </div>
+    </div>
+  </section> -->
+  <Cta />
 </Layout>
 
 <style>
@@ -682,4 +770,10 @@ const lotties = ["team", "tarifs", "sans-engagement", "gestion-distance"];
       }
     }
   }
+
+  /* .section-cta {
+    background-image: url("/img/bg-cta.png");
+    background-position: center;
+    background-size: cover;
+  } */
 </style>
