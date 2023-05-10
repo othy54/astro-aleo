@@ -20,6 +20,8 @@ import "@fontsource/nunito/800.css";
 import "@fontsource/nunito/800-italic.css";
 import "@fontsource/nunito/900.css";
 import "@fontsource/nunito/900-italic.css";
+
+
 ---
 
 <!DOCTYPE html>
@@ -31,6 +33,15 @@ import "@fontsource/nunito/900-italic.css";
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta data-hid="description" name="description" content={description} />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8M2101FME1"></script>
+    <script>
+      //@ts-nocheck
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-8M2101FME1');
+    </script>
   </head>
   <body>
     <slot />
